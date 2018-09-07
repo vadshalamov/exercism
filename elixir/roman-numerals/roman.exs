@@ -19,12 +19,12 @@ defmodule Roman do
   """
   @spec numerals(pos_integer) :: String.t()
   def numerals(number) do
-    do_numerals(@arabic_as_roman, number)
+    convert_to_roman(@arabic_as_roman, number)
   end
 
-  defp do_numerals([], _), do: ""
-  defp do_numerals([{arabic, roman} | _] = list, number) when number >= arabic,
-    do: roman <> do_numerals(list, number - arabic)
+  defp convert_to_roman([], _), do: ""
+  defp convert_to_roman([{arabic, roman} | _] = arabic_as_roman, number) when number >= arabic,
+    do: roman <> convert_to_roman(arabic_as_roman, number - arabic)
 
-  defp do_numerals([_ | tail], number), do: do_numerals(tail, number)
+  defp convert_to_roman([_ | tail], number), do: convert_to_roman(tail, number)
 end
