@@ -22,6 +22,10 @@ defmodule ListOpsTest do
     assert L.count([1, 3, 5, 7]) == 4
   end
 
+  test "count of list with 1 elem" do
+    assert L.count([1]) == 1
+  end
+
   # @tag :pending
   test "count of huge list" do
     assert L.count(Enum.to_list(1..1_000_000)) == 1_000_000
@@ -30,6 +34,10 @@ defmodule ListOpsTest do
   # @tag :pending
   test "reverse of empty list" do
     assert L.reverse([]) == []
+  end
+
+  test "reverse of list with 1 elem" do
+    assert L.reverse([1]) == [1]
   end
 
   # @tag :pending
@@ -47,6 +55,10 @@ defmodule ListOpsTest do
     assert L.map([], &(&1 + 1)) == []
   end
 
+  test "map of list with 1 elem" do
+    assert L.map([1], &(&1 + 1)) == [2]
+  end
+
   # @tag :pending
   test "map of normal list" do
     assert L.map([1, 3, 5, 7], &(&1 + 1)) == [2, 4, 6, 8]
@@ -62,6 +74,10 @@ defmodule ListOpsTest do
     assert L.filter([], &odd?/1) == []
   end
 
+  test "filter of list with 1 elem" do
+    assert L.filter([1], &odd?/1) == [1]
+  end
+
   # @tag :pending
   test "filter of normal list" do
     assert L.filter([1, 2, 3, 4], &odd?/1) == [1, 3]
@@ -75,6 +91,10 @@ defmodule ListOpsTest do
   # @tag :pending
   test "reduce of empty list" do
     assert L.reduce([], 0, &(&1 + &2)) == 0
+  end
+
+  test "reduce of list with 1 elem" do
+    assert L.reduce([1], 0, &(&1 + &2)) == 1
   end
 
   # @tag :pending

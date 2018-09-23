@@ -16,6 +16,7 @@ defmodule ListOps do
   def reverse(l), do: do_reverse(l)
 
   defp do_reverse([]), do: []
+  defp do_reverse([_] = list), do: list
   defp do_reverse([a, b]), do: [b, a]
   defp do_reverse([a, b | tail]), do: do_reverse(tail, [b, a])
 
