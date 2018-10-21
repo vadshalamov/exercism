@@ -24,9 +24,8 @@ handleNucleotide (Left message) _ _ = Left message
 
 
 toNucleotide :: Char -> Either String Nucleotide
-toNucleotide c = case c of
-  'A' -> Right A
-  'C' -> Right C
-  'G' -> Right G
-  'T' -> Right T
-  _   -> Left $ "Invalid nucleotide " ++ show c
+toNucleotide 'A' = Right A
+toNucleotide 'C' = Right C
+toNucleotide 'G' = Right G
+toNucleotide 'T' = Right T
+toNucleotide c = Left $ "Invalid nucleotide " ++ show c
