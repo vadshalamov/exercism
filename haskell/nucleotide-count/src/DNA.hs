@@ -22,7 +22,6 @@ handleNucleotide (Right nucleotide) xs nucleotideCountsMap =
   countNucleotide xs (Map.adjust (1 +) nucleotide nucleotideCountsMap)
 handleNucleotide (Left message) _ _ = Left message
 
-
 toNucleotide :: Char -> Either String Nucleotide
 toNucleotide 'A' = Right A
 toNucleotide 'C' = Right C
