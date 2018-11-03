@@ -17,7 +17,7 @@ isSilence :: String -> Bool
 isSilence = null
 
 isYell :: String -> Bool
-isYell xs = map toUpper xs == xs && map toLower xs /= xs
+isYell xs = all(\x -> toUpper x == x) xs && any(\x -> toLower x /= x) xs
 
 isQuestion :: String -> Bool
 isQuestion = endswith "?"
